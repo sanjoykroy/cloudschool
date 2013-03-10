@@ -1,2 +1,2 @@
-Cloud School
-============
+cloudschool
+===========
