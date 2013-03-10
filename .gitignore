@@ -1,0 +1,6 @@
+.idea
+.iml
+.iws
+cloudschool-service/target
+cloudschool-webapp/target
+.history
