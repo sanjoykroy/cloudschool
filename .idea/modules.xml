@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloudschool.iml" filepath="$PROJECT_DIR$/cloudschool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudschool-service/cloudschool-service.iml" filepath="$PROJECT_DIR$/cloudschool-service/cloudschool-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudschool-webapp/cloudschool-webapp.iml" filepath="$PROJECT_DIR$/cloudschool-webapp/cloudschool-webapp.iml" />
+    </modules>
+  </component>
+</project>
+
