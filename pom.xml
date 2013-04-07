@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>cloudschool-db</module>
         <module>cloudschool-service</module>
         <module>cloudschool-webapp</module>
     </modules>
@@ -19,7 +20,9 @@
         </repository>
         <repository>
             <id>spring-maven-snapshot</id>
-            <snapshots><enabled>true</enabled></snapshots>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
             <name>Springframework Maven SNAPSHOT Repository</name>
             <url>http://maven.springframework.org/snapshot</url>
         </repository>
@@ -35,6 +38,9 @@
         <testng-version>6.1.1</testng-version>
         <mockito-version>1.8.4</mockito-version>
         <spring-test-mvc-version>1.0.0.BUILD-SNAPSHOT</spring-test-mvc-version>
+        <logback-version>1.0.9</logback-version>
+        <h2-version>1.3.166</h2-version>
+        <liquibase-version>2.0.5</liquibase-version>
     </properties>
 
     <dependencies>
@@ -44,6 +50,19 @@
             <artifactId>spring-core</artifactId>
             <version>${spring-version}</version>
         </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback-version}</version>
+        </dependency>
+
 
         <!-- Testing -->
         <dependency>
@@ -97,13 +116,11 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>2.2.1</version>
                     <executions>
                         <execution>
                             <id>attach-sources</id>
-                            <phase>verify</phase>
                             <goals>
-                                <goal>jar-no-fork</goal>
+                                <goal>jar</goal>
                             </goals>
                         </execution>
                     </executions>

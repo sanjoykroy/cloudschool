@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="liquibase">
+
+    <target name="prepare">
+       <path id="classpath">
+           <pathelement path="${maven.compile.classpath}"/>
+       </path>
+    </target>
+
+    <target name="db-clean" depends="prepare">
+        <echo message="" />
+        <echo message="------------------------------"/>
+        <echo message="------- DROP DATABASE --------"/>
+        <echo message="------------------------------"/>
+        <echo message=""/>
+        <sql driver="${database.driver}" url="${database.url}" userid="${database.username}" password="${database.password}">
+            <classpath refid="classpath"/>
+            <transaction src="src/main/resources/dbsql/01-drop-schema.sql" />
+        </sql>
+    </target>
+
+    <target name="db-create" depends="prepare">
+        <echo message="" />
+        <echo message="------------------------------"/>
+        <echo message="------ CREATE DATABASE -------"/>
+        <echo message="------------------------------"/>
+        <echo message=""/>
+        <sql driver="${database.driver}" url="${database.url}" userid="${database.username}" password="${database.password}">
+            <classpath refid="classpath"/>
+            <transaction src="src/main/resources/dbsql/02-create-tables.sql" />
+            <transaction src="src/main/resources/dbsql/03-create-data.sql" />
+        </sql>
+    </target>
+
+    <target name="db-update" depends="prepare">
+        <echo message="" />
+        <echo message="------------------------------"/>
+        <echo message="------ UPDATE DATABASE -------"/>
+        <echo message="------------------------------"/>
+        <echo message=""/>
+        <fail unless="db.changelog.file">db.changelog.file not set</fail>
+        <fail unless="database.driver">db.driver not set</fail>
+        <fail unless="database.url">database.url not set</fail>
+        <fail unless="database.username">database.username not set</fail>
+        <fail unless="database.password">database.password not set</fail>
+        <taskdef resource="liquibasetasks.properties">
+            <classpath refid="classpath"/>
+        </taskdef>
+        <updateDatabase
+            changeLogFile = "${db.changelog.file}"
+            driver = "${database.driver}"
+            url = "${database.url}"
+            username = "${database.username}"
+            password = "${database.password}"
+            classpathref="classpath" />
+    </target>
+
+</project>

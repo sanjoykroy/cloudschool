@@ -1,5 +1,7 @@
 package com.realtech.cloudschool.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -7,10 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
+    private final static Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
+
     private static final String VIEW_NAME = "home";
 
     @RequestMapping("/home")
     public String showHomePage(){
+        LOGGER.info("Showing home page");
         return VIEW_NAME;
     }
 }
