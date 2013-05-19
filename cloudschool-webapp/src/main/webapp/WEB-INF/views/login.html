@@ -1,13 +1,30 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring3-3.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:th="http://www.thymeleaf.org">
-<head></head>
-<body>
-    <p th:text="#{${loginError}}" th:if="${loginError != null}" />
-    <form action="j_spring_security_check" method="POST">
-        <input type="text" id="j_username" name="j_username" placeholder="Username" />
-        <input type="password" id="j_password" name="j_password" placeholder="Password" />
-        <input type="submit" />
-    </form>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="includes/header :: header"></head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="jumbotron">
+                <h1>Cloud School</h1>
+                <p class="lead">
+                    A school in the cloud. An experiment project based on talk given by Dr. Sugata Mitra in TED.
+                </p>
+
+                <form class="form-signin"  action="j_spring_security_check" method="POST">
+                    <p th:text="#{${loginError}}" th:if="${loginError != null}"></p>
+                    <h2 class="form-signin-heading">Please sign in</h2>
+                    <input type="text" class="input-block-level" id="j_username" name="j_username" placeholder="Username" />
+                    <input type="password" class="input-block-level"  id="j_password" name="j_password" placeholder="Password" />
+                    <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+                </form>
+
+            </div>
+
+        </div>
+
+        <div th:include="includes/footer :: footer"></div>
+
+    </body>
 </html>
