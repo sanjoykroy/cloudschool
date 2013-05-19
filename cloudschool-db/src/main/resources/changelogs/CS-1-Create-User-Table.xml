@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="CS-1-Create-User-Table" author="sanjoy.roy">
+        <sql><![CDATA[
+
+                CREATE TABLE USER (
+                    ID NUMBER(19,0) NOT NULL AUTO_INCREMENT,
+                    USERNAME VARCHAR2(100) NOT NULL,
+                    PASSWORD VARCHAR2(100) NOT NULL,
+                    FIRSTNAME VARCHAR2(255) NOT NULL,
+                    LASTNAME  VARCHAR2(255) NOT NULL,
+                    EMAIL VARCHAR2(255) NOT NULL,
+                    INTERESTS VARCHAR2(255) NOT NULL,
+                    CREATE_DATE DATE DEFAULT SYSDATE,
+                    UPDATE_DATE DATE DEFAULT SYSDATE,
+                    PRIMARY KEY(id)
+                );
+
+            ]]>
+        </sql>
+    </changeSet>
+</databaseChangeLog>

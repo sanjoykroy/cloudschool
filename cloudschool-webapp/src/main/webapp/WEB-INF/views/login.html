@@ -5,21 +5,43 @@
     <body>
 
         <div class="container">
-
-            <div class="jumbotron">
-                <h1>Cloud School</h1>
-                <p class="lead">
-                    A school in the cloud. An experiment project based on talk given by Dr. Sugata Mitra in TED.
-                </p>
-
-                <form class="form-signin"  action="j_spring_security_check" method="POST">
-                    <p th:text="#{${loginError}}" th:if="${loginError != null}"></p>
-                    <h2 class="form-signin-heading">Please sign in</h2>
-                    <input type="text" class="input-block-level" id="j_username" name="j_username" placeholder="Username" />
-                    <input type="password" class="input-block-level"  id="j_password" name="j_password" placeholder="Password" />
-                    <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-                </form>
-
+            <div class="home-top">
+                <div class="pull-right inline">
+                    <h1>Cloud School</h1>
+                    <form class="form-inline">
+                        <input type="text" class="input-small" id="j_username" name="j_username"  placeholder="Email"/>
+                        <input type="password" class="input-small" id="j_password" name="j_password" placeholder="Password" />
+                        <button class="btn" type="submit">Sign in</button>
+                    </form>
+                </div>
+            </div>
+            <div class="home-body">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="span6">
+                            <fieldset>
+                                <legend>Explore the learning possibilities</legend>
+                                <h4><i class="icon-hand-right"></i> Create learning group</h4>
+                                <h4><i class="icon-hand-right"></i> Ask question</h4>
+                                <h4><i class="icon-hand-right"></i> Seek answer</h4>
+                                <h4><i class="icon-hand-right"></i> Share experience</h4>
+                            </fieldset>
+                        </div>
+                        <div class="span6">
+                            <form class="form-signup">
+                                <center>
+                                <h2 class="form-signup-heading">Sign Up</h2>
+                                <input type="text" class="input-block-level" id="inputFirst" placeholder="First Name" />
+                                <input type="text" class="input-block-level" id="inputLast" placeholder="Last Name" />
+                                <input type="text" class="input-block-level" id="inputEmail" placeholder="Email" />
+                                <input type="text" class="input-block-level" id="inputUser" placeholder="Re-enter Email" />
+                                <input type="password" class="input-block-level" id="inputPassword" placeholder="New Password" />
+                                <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
