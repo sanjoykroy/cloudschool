@@ -16,8 +16,8 @@
                     LASTNAME  VARCHAR2(255) NOT NULL,
                     EMAIL VARCHAR2(255) NOT NULL,
                     INTERESTS VARCHAR2(255) NOT NULL,
-                    CREATE_DATE DATE DEFAULT SYSDATE,
-                    UPDATE_DATE DATE DEFAULT SYSDATE,
+                    CREATEDATE DATE DEFAULT SYSDATE,
+                    UPDATEDATE DATE DEFAULT SYSDATE,
                     PRIMARY KEY(id)
                 );
 
