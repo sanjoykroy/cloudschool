@@ -15,6 +15,8 @@ import static org.springframework.test.web.server.request.MockMvcRequestBuilders
 
 public class HomeControllerTest {
 
+    private static final String EXPECTED_HOME_VIEW = "home";
+
     private HomeController controller;
     @Mock
     private View mockView;
@@ -30,7 +32,7 @@ public class HomeControllerTest {
     @Test
     public void shouldShowHomePage() throws Exception {
         this.mockMvc.perform(get("/home"))
-                .andExpect(view().name(containsString("home")))
+                .andExpect(view().name(containsString(EXPECTED_HOME_VIEW)))
                 .andExpect(status().isOk());
     }
 }

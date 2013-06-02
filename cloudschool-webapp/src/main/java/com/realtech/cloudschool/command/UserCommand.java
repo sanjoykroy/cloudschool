@@ -1,15 +1,12 @@
-package com.realtech.cloudschool.model;
+package com.realtech.cloudschool.command;
 
-import javax.persistence.*;
+import com.realtech.cloudschool.model.User;
+
 import java.util.Date;
 
-@Entity
-public class User {
+public class UserCommand {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String username;
     private String password;
     private String firstname;
@@ -17,10 +14,8 @@ public class User {
     private String email;
     private String interests;
 
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
-    @Temporal(TemporalType.DATE)
-    private Date updateDate;
+    public UserCommand() {
+    }
 
     public Long getId() {
         return id;
@@ -78,19 +73,16 @@ public class User {
         this.interests = interests;
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
+    public User convertToUser(){
+        User user = new User();
+        user.setUsername(getUsername());
+        user.setPassword(getPassword());
+        user.setFirstname(getFirstname());
+        user.setLastname(getLastname());
+        user.setEmail(getEmail());
+        user.setInterests(getInterests());
+        user.setCreateDate(new Date());
+        user.setUpdateDate(new Date());
+        return user;
     }
 }

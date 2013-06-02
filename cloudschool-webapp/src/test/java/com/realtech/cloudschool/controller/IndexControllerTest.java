@@ -20,6 +20,8 @@ public class IndexControllerTest {
     private View mockView;
     private MockMvc mockMvc;
 
+    private static final String EXPECTED_INDEX_VIEW = "index";
+
     @BeforeMethod
     public void setup() throws Exception {
         controller = new IndexController();
@@ -30,7 +32,7 @@ public class IndexControllerTest {
     @Test
     public void shouldShowIndexPage() throws Exception {
         this.mockMvc.perform(get("/"))
-                .andExpect(view().name(containsString("index")))
+                .andExpect(view().name(containsString(EXPECTED_INDEX_VIEW)))
                 .andExpect(status().isOk());
     }
 }

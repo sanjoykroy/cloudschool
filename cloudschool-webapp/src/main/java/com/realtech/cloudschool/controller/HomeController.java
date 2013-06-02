@@ -11,11 +11,11 @@ public class HomeController {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
-    private static final String VIEW_NAME = "home";
+    private static final String HOME_VIEW = "home";
 
     @RequestMapping("/home")
     public String showHomePage(){
         LOGGER.info("Showing home page");
-        return VIEW_NAME;
+        return HOME_VIEW;
     }
 }

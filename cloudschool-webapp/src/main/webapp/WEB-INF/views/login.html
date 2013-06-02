@@ -28,14 +28,15 @@
                             </fieldset>
                         </div>
                         <div class="span6">
-                            <form class="form-signup">
+                            <form class="form-signup" th:action="@{'/register'}" th:object="${userCommand}" method="POST">
                                 <center>
                                 <h2 class="form-signup-heading">Sign Up</h2>
-                                <input type="text" class="input-block-level" id="inputFirst" placeholder="First Name" />
-                                <input type="text" class="input-block-level" id="inputLast" placeholder="Last Name" />
-                                <input type="text" class="input-block-level" id="inputEmail" placeholder="Email" />
-                                <input type="text" class="input-block-level" id="inputUser" placeholder="Re-enter Email" />
-                                <input type="password" class="input-block-level" id="inputPassword" placeholder="New Password" />
+                                <input type="text" class="input-block-level" id="inputFirst" placeholder="First Name" th:field="*{firstname}" />
+                                <input type="text" class="input-block-level" id="inputLast" placeholder="Last Name" th:field="*{lastname}" />
+                                <input type="text" class="input-block-level" id="inputEmail" placeholder="Email" th:field="*{email}" />
+                                <input type="text" class="input-block-level" id="inputReenterEmail" placeholder="Re-enter Email" />
+                                <input type="text" class="input-block-level" id="inputUsername" placeholder="Username" th:field="*{username}" />
+                                <input type="password" class="input-block-level" id="inputPassword" placeholder="New Password" th:field="*{password}" />
                                 <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
                                 </center>
                             </form>

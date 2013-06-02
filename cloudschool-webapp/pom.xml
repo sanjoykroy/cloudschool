@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cloudschool</artifactId>
         <groupId>com.realtech.cloudschool</groupId>
+        <artifactId>cloudschool</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloudschool-webapp</artifactId>
     <groupId>com.realtech.cloudschool</groupId>
+    <artifactId>cloudschool-webapp</artifactId>
     <name>CLOUD SCHOOL WEB APP</name>
     <packaging>war</packaging>
 
@@ -26,8 +26,6 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
@@ -104,6 +102,13 @@
             <version>${thymeleaf.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.realtech.cloudschool</groupId>
+            <artifactId>cloudschool-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+
         <!-- Test -->
 
         <dependency>
@@ -132,7 +137,6 @@
             <version>2.5</version>
             <scope>test</scope>
         </dependency>
-
 
     </dependencies>
 

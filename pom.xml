@@ -77,7 +77,6 @@
             <version>${logback.version}</version>
         </dependency>
 
-
         <!-- Testing -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -99,11 +98,6 @@
             <id>springsource-repo</id>
             <name>SpringSource Repository</name>
             <url>http://repo.springsource.org/release</url>
-        </repository>
-        <repository>
-            <id>mortbay-release-repo</id>
-            <name>MortBay Release Repo</name>
-            <url>http://jetty.mortbay.org/maven2/release</url>
         </repository>
         <repository>
             <id>spring-maven-snapshot</id>

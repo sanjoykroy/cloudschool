@@ -10,9 +10,11 @@ public class IndexController {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
+    private static final String INDEX_VIEW = "index";
+
     @RequestMapping(value="/")
     public String index() {
         LOGGER.info("Showing index page");
-        return "index";
+        return INDEX_VIEW;
     }
 }
