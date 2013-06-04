@@ -8,6 +8,7 @@
     <div th:if="${user != null}">
         <p>Hello  <b th:text="${user.firstname}"></b> Welcome to Cloud School</p>
         <p>Your Id is <b th:text="${user.id}"></b></p>
+        <p>Your username is <b th:text="${user.username}"></b></p>
         <p>Account Created: <b th:text="${user.createDate}"></b></p>
         <p>Last updated: <b th:text="${user.updateDate}"></b></p>
     </div>

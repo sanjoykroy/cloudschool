@@ -1,10 +1,13 @@
 package com.realtech.cloudschool.command;
 
 import com.realtech.cloudschool.model.User;
+import com.realtech.cloudschool.security.MD5Crypt;
 
 import java.util.Date;
 
 public class UserCommand {
+
+    private final static String SALT = "$1$54%as56wD";
 
     private Long id;
     private String username;
@@ -76,13 +79,14 @@ public class UserCommand {
     public User convertToUser(){
         User user = new User();
         user.setUsername(getUsername());
-        user.setPassword(getPassword());
+        user.setPassword(MD5Crypt.crypt(getPassword(), SALT));
         user.setFirstname(getFirstname());
         user.setLastname(getLastname());
         user.setEmail(getEmail());
         user.setInterests(getInterests());
         user.setCreateDate(new Date());
         user.setUpdateDate(new Date());
+        user.setEnabled(1);
         return user;
     }
 }

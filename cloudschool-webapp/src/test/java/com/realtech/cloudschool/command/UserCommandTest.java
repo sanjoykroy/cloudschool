@@ -22,7 +22,7 @@ public class UserCommandTest {
         User user = command.convertToUser();
 
         assertThat(user.getUsername(), is("username"));
-        assertThat(user.getPassword(), is("password"));
+        assertThat(user.getPassword(), is("$1$54%as56w$M7zBWjSJm2JCdCnL/P3tm/"));
         assertThat(user.getFirstname(), is("firstname"));
         assertThat(user.getLastname(), is("lastname"));
         assertThat(user.getEmail(), is("email"));

@@ -18,6 +18,7 @@
                     INTERESTS VARCHAR2(255) NOT NULL,
                     CREATEDATE DATE DEFAULT SYSDATE,
                     UPDATEDATE DATE DEFAULT SYSDATE,
+                    ENABLED INTEGER NOT NULL,
                     PRIMARY KEY(id)
                 );
 

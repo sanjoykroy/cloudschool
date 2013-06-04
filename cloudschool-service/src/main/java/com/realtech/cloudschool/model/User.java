@@ -21,6 +21,7 @@ public class User {
     private Date createDate;
     @Temporal(TemporalType.DATE)
     private Date updateDate;
+    private int enabled;
 
     public Long getId() {
         return id;
@@ -92,5 +93,13 @@ public class User {
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public int getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
 }
