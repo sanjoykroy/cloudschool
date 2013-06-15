@@ -1,9 +1,9 @@
 package com.realtech.cloudschool.controller;
 
-
-
 import com.realtech.cloudschool.model.User;
+import com.realtech.cloudschool.model.UserRoles;
 import com.realtech.cloudschool.repository.UserRepository;
+import com.realtech.cloudschool.repository.UserRolesRepository;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.Map;
 
 
@@ -39,6 +40,8 @@ public class RegistrationControllerTest {
     private View mockView;
     @Mock
     private UserRepository mockRepository;
+    @Mock
+    private UserRolesRepository mockRolesRepository;
     private MockMvc mockMvc;
 
     @BeforeMethod
@@ -53,12 +56,15 @@ public class RegistrationControllerTest {
         User user = getFakeUser();
         User savedUser = getFakeUser();
         savedUser.setId(101L);
-        when(mockRepository.save(user)).thenReturn(savedUser);
+        when(mockRepository.save(any(User.class))).thenReturn(savedUser);
+        UserRoles savedRoles = getFakeRoles();
+        savedRoles.setUserRoleId(1001L);
+        when(mockRolesRepository.save(any(UserRoles.class))).thenReturn(savedRoles);
 
         this.mockMvc.perform(
                 post("/register")
                     .param("username", user.getUsername())
-                    .param("password", user.getPassword())
+                    .param("password", "testPassword")
                     .param("firstname", user.getFirstname())
                     .param("lastname", user.getLastname())
                     .param("email", user.getEmail())
@@ -68,6 +74,7 @@ public class RegistrationControllerTest {
                 .andExpect(view().name(containsString(EXPECTED_HOME_VIEW)));
 
         verify(mockRepository).save(any(User.class));
+        verify(mockRolesRepository).save(any(UserRoles.class));
         verify(mockView).render(any(Map.class), any(HttpServletRequest.class), any(HttpServletResponse.class));
         verifyNoMoreInteractions(mockRepository, mockView);
 
@@ -76,11 +83,21 @@ public class RegistrationControllerTest {
     private User getFakeUser(){
         User user = new User();
         user.setUsername("testUsername");
-        user.setPassword("testPassword");
+        user.setPassword("$1$54%as56w$UgWV0I9YO9GyYfAqGmW7w/");
         user.setFirstname("testFirstname");
         user.setLastname("testLastname");
         user.setEmail("testEmail@abc.com");
         user.setInterests("test interests");
+        user.setEnabled(true);
+        user.setCreateDate(new Date());
+        user.setUpdateDate(new Date());
         return user;
+    }
+
+    private UserRoles getFakeRoles(){
+        UserRoles roles = new UserRoles();
+        roles.setUserId(101L);
+        roles.setAuthority("ROLE_USER");
+        return roles;
     }
 }

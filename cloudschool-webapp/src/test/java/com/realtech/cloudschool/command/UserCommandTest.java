@@ -18,6 +18,7 @@ public class UserCommandTest {
         command.setLastname("lastname");
         command.setEmail("email");
         command.setInterests("interests");
+        command.setEnabled(true);
 
         User user = command.convertToUser();
 
@@ -27,5 +28,6 @@ public class UserCommandTest {
         assertThat(user.getLastname(), is("lastname"));
         assertThat(user.getEmail(), is("email"));
         assertThat(user.getInterests(), is("interests"));
+        assertThat(user.isEnabled(), is(Boolean.TRUE));
     }
 }

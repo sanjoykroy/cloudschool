@@ -101,6 +101,7 @@ public final class MD5Crypt {
         } else {
             System.err.println(MD5Crypt.crypt(argv[0]));
         }
+
         System.exit(0);
     }
 

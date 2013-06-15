@@ -4,7 +4,9 @@ package com.realtech.cloudschool.controller;
 
 import com.realtech.cloudschool.command.UserCommand;
 import com.realtech.cloudschool.model.User;
+import com.realtech.cloudschool.model.UserRoles;
 import com.realtech.cloudschool.repository.UserRepository;
+import com.realtech.cloudschool.repository.UserRolesRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ public class RegistrationController {
 
     @Autowired
     private UserRepository repository;
+    @Autowired
+    private UserRolesRepository rolesRepository;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerUser(UserCommand command, BindingResult result, ModelMap map){
@@ -34,10 +38,18 @@ public class RegistrationController {
         } else {
             User user = command.convertToUser();
             User savedUser = repository.save(user);
+            UserRoles roles = createUserRoles(savedUser.getId());
             map.addAttribute("user", savedUser);
+            map.addAttribute("roles", roles);
             return HOME_VIEW;
         }
-
         return LOGIN_VIEW;
+    }
+
+    private UserRoles createUserRoles(Long userId){
+        UserRoles roles = new UserRoles();
+        roles.setUserId(userId);
+        roles.setAuthority("ROLE_USER");
+        return rolesRepository.save(roles);
     }
 }

@@ -6,7 +6,6 @@ import com.realtech.cloudschool.security.MD5Crypt;
 import java.util.Date;
 
 public class UserCommand {
-
     private final static String SALT = "$1$54%as56wD";
 
     private Long id;
@@ -16,6 +15,7 @@ public class UserCommand {
     private String lastname;
     private String email;
     private String interests;
+    private boolean enabled;
 
     public UserCommand() {
     }
@@ -76,17 +76,25 @@ public class UserCommand {
         this.interests = interests;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public User convertToUser(){
         User user = new User();
         user.setUsername(getUsername());
-        user.setPassword(MD5Crypt.crypt(getPassword(), SALT));
+        user.setPassword(MD5Crypt.crypt(getPassword().trim(), SALT));
         user.setFirstname(getFirstname());
         user.setLastname(getLastname());
         user.setEmail(getEmail());
         user.setInterests(getInterests());
         user.setCreateDate(new Date());
         user.setUpdateDate(new Date());
-        user.setEnabled(1);
+        user.setEnabled(Boolean.TRUE);
         return user;
     }
 }

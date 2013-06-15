@@ -11,6 +11,12 @@
         <p>Your username is <b th:text="${user.username}"></b></p>
         <p>Account Created: <b th:text="${user.createDate}"></b></p>
         <p>Last updated: <b th:text="${user.updateDate}"></b></p>
+        <p>Account Enabled: <b th:text="${user.enabled}"></b></p>
+    </div>
+    <div th:if="${roles != null}">
+        <p>Role Id is <b th:text="${roles.userRoleId}"></b></p>
+        <p>User Id is <b th:text="${roles.userId}"></b></p>
+        <p>Authority is <b th:text="${roles.authority}"></b></p>
     </div>
     <a href="/cloudschool/logout">Logout</a>
 </body>
