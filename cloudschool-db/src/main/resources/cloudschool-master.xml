@@ -6,6 +6,8 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
     <include file="changelogs/CS-1-Create-User-Table.xml" />
+    <include file="changelogs/CS-2-Create-User-Role-Table.xml" />
+    <include file="changelogs/CS-3-Insert-User-Data.xml" />
 
 </databaseChangeLog>
 

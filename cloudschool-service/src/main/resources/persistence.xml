@@ -5,6 +5,7 @@
 
     <persistence-unit name="cloudSchoolPersistenceUnit">
         <class>com.realtech.cloudschool.model.User</class>
+        <class>com.realtech.cloudschool.model.UserRoles</class>
     </persistence-unit>
 
 </persistence>
