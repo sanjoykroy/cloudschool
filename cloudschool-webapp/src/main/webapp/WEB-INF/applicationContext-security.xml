@@ -17,9 +17,11 @@
         <logout logout-url="/logout" invalidate-session="true" logout-success-url="/login"/>
     </http>
 
+    <beans:bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
+
     <authentication-manager alias="authenticationManager">
         <authentication-provider>
-            <password-encoder ref="userPasswordEncoder" hash="sha"/>
+            <password-encoder ref="encoder" />
             <jdbc-user-service data-source-ref="cloudSchoolDataSource"
 
                                users-by-username-query="select username, password, enabled from user where username = ?"

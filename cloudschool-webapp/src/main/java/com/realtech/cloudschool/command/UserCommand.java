@@ -1,12 +1,11 @@
 package com.realtech.cloudschool.command;
 
 import com.realtech.cloudschool.model.User;
-import com.realtech.cloudschool.security.MD5Crypt;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 import java.util.Date;
 
 public class UserCommand {
-    private final static String SALT = "$1$54%as56wD";
 
     private Long id;
     private String username;
@@ -87,7 +86,8 @@ public class UserCommand {
     public User convertToUser(){
         User user = new User();
         user.setUsername(getUsername());
-        user.setPassword(MD5Crypt.crypt(getPassword().trim(), SALT));
+        StandardPasswordEncoder encoder = new StandardPasswordEncoder();
+        user.setPassword(encoder.encode(getPassword()));
         user.setFirstname(getFirstname());
         user.setLastname(getLastname());
         user.setEmail(getEmail());

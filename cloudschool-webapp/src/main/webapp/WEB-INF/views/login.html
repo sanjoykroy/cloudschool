@@ -10,7 +10,7 @@
                     <h1>Cloud School</h1>
                     <form class="form-inline" action="j_spring_security_check" method="POST">
                         <p th:text="#{${loginError}}" th:if="${loginError != null}" />
-                        <input type="text" class="input-small" id="j_username" name="j_username"  placeholder="Email"/>
+                        <input type="text" class="input-small" id="j_username" name="j_username"  placeholder="Username"/>
                         <input type="password" class="input-small" id="j_password" name="j_password" placeholder="Password" />
                         <button class="btn" type="submit">Sign in</button>
                     </form>

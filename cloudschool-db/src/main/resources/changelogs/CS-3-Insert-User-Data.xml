@@ -8,7 +8,7 @@
     <changeSet id="CS-3-Insert-User-Data" author="sanjoy.roy">
         <sql><![CDATA[
                     INSERT INTO USER (USERNAME,PASSWORD,FIRSTNAME,LASTNAME,EMAIL,INTERESTS, ENABLED)
-                    VALUES ('sanjoy', '$1$54%as56w$qpLSVvHFFPq3noWM5xkuz1', 'Sanjoy', 'Roy', 'sanjoy@abc.com', 'blah, blah', true);
+                    VALUES ('sanjoy', '96ae0279d8a225158ac07b51541958c01f521bd6e4d9eeb9189943d659742e79ece61a09fbdcadf2', 'Sanjoy', 'Roy', 'sanjoy@abc.com', 'blah, blah', true);
 
                     INSERT INTO USER_ROLES (USER_ID, AUTHORITY)
                     VALUES (SELECT ID FROM USER WHERE USERNAME = 'sanjoy', 'ROLE_USER');

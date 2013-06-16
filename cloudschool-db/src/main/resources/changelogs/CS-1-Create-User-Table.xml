@@ -11,7 +11,7 @@
                 CREATE TABLE USER (
                     ID NUMBER(19,0) NOT NULL AUTO_INCREMENT,
                     USERNAME VARCHAR2(100) NOT NULL,
-                    PASSWORD VARCHAR2(100) NOT NULL,
+                    PASSWORD VARCHAR2(255) NOT NULL,
                     FIRSTNAME VARCHAR2(255) NOT NULL,
                     LASTNAME  VARCHAR2(255) NOT NULL,
                     EMAIL VARCHAR2(255) NOT NULL,
