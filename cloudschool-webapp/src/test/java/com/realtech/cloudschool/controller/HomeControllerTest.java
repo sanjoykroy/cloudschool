@@ -4,7 +4,6 @@ import com.realtech.cloudschool.model.User;
 import com.realtech.cloudschool.repository.UserRepository;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -18,9 +17,7 @@ import org.testng.annotations.Test;
 import java.security.Principal;
 import java.util.Arrays;
 
-import static org.hamcrest.Matchers.any;
 import static org.hamcrest.Matchers.containsString;
-import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.model;
