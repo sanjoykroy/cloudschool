@@ -13,7 +13,7 @@
 
     <http auto-config="true" access-denied-page="/error/401.html">
         <intercept-url pattern="/home" access="ROLE_USER" />
-        <form-login login-page="/login" default-target-url="/index.html" authentication-failure-url="/login-again"/>
+        <form-login login-page="/login" default-target-url="/home" authentication-failure-url="/login-again"/>
         <logout logout-url="/logout" invalidate-session="true" logout-success-url="/login"/>
     </http>
 
