@@ -1,0 +1,25 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring3-3.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<div id="top" th:fragment="top">
+    <div class="well">
+        <div class="pull-left">
+            <span style="font: bold 2em Georgia, serif;">Cloud School</span>
+        </div>
+        <div class="pull-right">
+            <div th:if="${user == null}">
+                <form class="form-inline" action="j_spring_security_check" method="POST">
+                    <p th:text="#{${loginError}}" th:if="${loginError != null}"/>
+                    <input type="text" class="input-small" id="j_username" name="j_username"
+                           placeholder="Username"/>
+                    <input type="password" class="input-small" id="j_password" name="j_password"
+                           placeholder="Password"/>
+                    <button class="btn" type="submit">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
