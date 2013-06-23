@@ -8,6 +8,8 @@
     <include file="changelogs/CS-1-Create-User-Table.xml" />
     <include file="changelogs/CS-2-Create-User-Role-Table.xml" />
     <include file="changelogs/CS-3-Insert-User-Data.xml" />
+    <include file="changelogs/CS-4-Add-UserId-Column.xml" />
+    <include file="changelogs/CS-5-Insert-UserId.xml" />
 
 </databaseChangeLog>
 
