@@ -8,7 +8,7 @@
     <changeSet id="CS-4-Add-UserId-Column" author="sanjoy.roy">
         <sql><![CDATA[
 
-                ALTER TABLE USER ADD USERID VARCHAR(60) NOT NULL;
+                ALTER TABLE USER ADD USERID VARCHAR(100) NOT NULL;
 
             ]]>
         </sql>

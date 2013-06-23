@@ -9,11 +9,11 @@
         <sql><![CDATA[
                 CREATE TABLE USER_ROLES (
                     USER_ROLE_ID NUMBER(19,0) NOT NULL  AUTO_INCREMENT,
-                    USER_ID NUMBER(19,0) NOT NULL,
+                    ID NUMBER(19,0) NOT NULL,
                     AUTHORITY VARCHAR2(45) NOT NULL,
                     PRIMARY KEY (USER_ROLE_ID),
-                    KEY FK_user_roles (USER_ID),
-                    CONSTRAINT FK_user_roles FOREIGN KEY (USER_ID) REFERENCES USER (ID)
+                    KEY FK_user_roles (ID),
+                    CONSTRAINT FK_user_roles FOREIGN KEY (ID) REFERENCES USER (ID)
                 );
             ]]>
         </sql>

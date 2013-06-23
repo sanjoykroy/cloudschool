@@ -17,13 +17,14 @@ import static org.testng.Assert.assertTrue;
 @ContextConfiguration("classpath:repository-context.xml")
 public class UserRepositoryIntegrationTest extends AbstractCloudSchoolRepositoryTest {
 
+
     @Autowired
     private UserRepository repository;
 
     @Test
     public void shouldSaveUser() {
-        User user = repository.save(new User());
-        assertThat(user.getId(), is(notNullValue()));
+        User savedUser = repository.save(new User());
+        assertThat(savedUser.getId(), is(notNullValue()));
     }
 
     @Test

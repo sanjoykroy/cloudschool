@@ -12,7 +12,7 @@
                     INSERT INTO USER (USERNAME,PASSWORD,FIRSTNAME,LASTNAME,EMAIL,INTERESTS, ENABLED)
                     VALUES ('peter', '96ae0279d8a225158ac07b51541958c01f521bd6e4d9eeb9189943d659742e79ece61a09fbdcadf2', 'Peter', 'Smith', 'peter@abc.com', 'blah, blah', true);
 
-                    INSERT INTO USER_ROLES (USER_ID, AUTHORITY)
+                    INSERT INTO USER_ROLES (ID, AUTHORITY)
                     VALUES (SELECT ID FROM USER WHERE USERNAME = 'peter', 'ROLE_USER');
             ]]>
         </sql>

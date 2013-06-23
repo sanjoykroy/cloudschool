@@ -5,6 +5,7 @@
 
     <persistence-unit name="cloudSchoolPersistenceUnit">
         <class>com.realtech.cloudschool.identityaccess.domain.model.User</class>
+        <class>com.realtech.cloudschool.identityaccess.domain.model.UserId</class>
         <class>com.realtech.cloudschool.identityaccess.domain.model.UserRoles</class>
     </persistence-unit>
 

@@ -5,6 +5,7 @@ package com.realtech.cloudschool.controller;
 import com.realtech.cloudschool.command.UserCommand;
 import com.realtech.cloudschool.identityaccess.domain.model.User;
 import com.realtech.cloudschool.identityaccess.domain.model.UserRoles;
+import com.realtech.cloudschool.identityaccess.domain.repository.UserIdRepository;
 import com.realtech.cloudschool.identityaccess.domain.repository.UserRepository;
 import com.realtech.cloudschool.identityaccess.domain.repository.UserRolesRepository;
 import org.slf4j.Logger;
@@ -25,9 +26,11 @@ public class RegistrationController {
     private static final String LOGIN_VIEW = "login";
 
     @Autowired
-    private UserRepository repository;
+    private UserRepository userRepository;
     @Autowired
-    private UserRolesRepository rolesRepository;
+    private UserIdRepository userIdRepository;
+    @Autowired
+    private UserRolesRepository userRolesRepository;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerUser(UserCommand command, BindingResult result, ModelMap map){
@@ -37,7 +40,8 @@ public class RegistrationController {
             LOGGER.error("Registering a user has errors - {}", result.getAllErrors());
         } else {
             User user = command.convertToUser();
-            User savedUser = repository.save(user);
+            user.setUserId(userIdRepository.nextIdentity());
+            User savedUser = userRepository.save(user);
             UserRoles roles = createUserRoles(savedUser.getId());
             map.addAttribute("user", savedUser);
             map.addAttribute("roles", roles);
@@ -50,6 +54,6 @@ public class RegistrationController {
         UserRoles roles = new UserRoles();
         roles.setUserId(userId);
         roles.setAuthority("ROLE_USER");
-        return rolesRepository.save(roles);
+        return userRolesRepository.save(roles);
     }
 }

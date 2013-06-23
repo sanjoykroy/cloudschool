@@ -1,7 +1,9 @@
 package com.realtech.cloudschool.controller;
 
 import com.realtech.cloudschool.identityaccess.domain.model.User;
+import com.realtech.cloudschool.identityaccess.domain.model.UserId;
 import com.realtech.cloudschool.identityaccess.domain.model.UserRoles;
+import com.realtech.cloudschool.identityaccess.domain.repository.UserIdRepository;
 import com.realtech.cloudschool.identityaccess.domain.repository.UserRepository;
 import com.realtech.cloudschool.identityaccess.domain.repository.UserRolesRepository;
 import org.mockito.InjectMocks;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 
 
 import static org.hamcrest.Matchers.containsString;
@@ -32,14 +35,15 @@ import static org.springframework.test.web.server.setup.MockMvcBuilders.standalo
 public class RegistrationControllerTest {
 
     private static final String EXPECTED_HOME_VIEW = "home";
-    private static final String EXPECTED_LOGIN_VIEW = "login";
 
     @InjectMocks
     private RegistrationController controller;
     @Mock
     private View mockView;
     @Mock
-    private UserRepository mockRepository;
+    private UserRepository mockUserRepository;
+    @Mock
+    private UserIdRepository mockUserIdRepository;
     @Mock
     private UserRolesRepository mockRolesRepository;
     private MockMvc mockMvc;
@@ -56,7 +60,8 @@ public class RegistrationControllerTest {
         User user = getFakeUser();
         User savedUser = getFakeUser();
         savedUser.setId(101L);
-        when(mockRepository.save(any(User.class))).thenReturn(savedUser);
+        when(mockUserIdRepository.nextIdentity()).thenReturn(getFakeUserId());
+        when(mockUserRepository.save(any(User.class))).thenReturn(savedUser);
         UserRoles savedRoles = getFakeRoles();
         savedRoles.setUserRoleId(1001L);
         when(mockRolesRepository.save(any(UserRoles.class))).thenReturn(savedRoles);
@@ -73,10 +78,11 @@ public class RegistrationControllerTest {
                 .andExpect(model().hasNoErrors())
                 .andExpect(view().name(containsString(EXPECTED_HOME_VIEW)));
 
-        verify(mockRepository).save(any(User.class));
+        verify(mockUserIdRepository).nextIdentity();
+        verify(mockUserRepository).save(any(User.class));
         verify(mockRolesRepository).save(any(UserRoles.class));
         verify(mockView).render(any(Map.class), any(HttpServletRequest.class), any(HttpServletResponse.class));
-        verifyNoMoreInteractions(mockRepository, mockView);
+        verifyNoMoreInteractions(mockUserIdRepository, mockUserRepository, mockRolesRepository, mockView);
 
     }
 
@@ -92,6 +98,10 @@ public class RegistrationControllerTest {
         user.setCreateDate(new Date());
         user.setUpdateDate(new Date());
         return user;
+    }
+
+    private UserId getFakeUserId(){
+        return new UserId(UUID.randomUUID().toString().toUpperCase());
     }
 
     private UserRoles getFakeRoles(){
