@@ -1,6 +1,7 @@
-package com.realtech.cloudschool.repository;
+package com.realtech.cloudschool.identityaccess.domain.repository;
 
-import com.realtech.cloudschool.model.User;
+import com.realtech.cloudschool.AbstractCloudSchoolRepositoryTest;
+import com.realtech.cloudschool.identityaccess.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,7 +15,7 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 @ContextConfiguration("classpath:repository-context.xml")
-public class UserRepositoryIntegrationTest extends AbstractCloudSchoolRepositoryTest{
+public class UserRepositoryIntegrationTest extends AbstractCloudSchoolRepositoryTest {
 
     @Autowired
     private UserRepository repository;

@@ -1,6 +1,6 @@
 package com.realtech.cloudschool.command;
 
-import com.realtech.cloudschool.model.User;
+import com.realtech.cloudschool.identityaccess.domain.model.User;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 import java.util.Date;

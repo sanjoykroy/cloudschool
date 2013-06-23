@@ -1,7 +1,7 @@
-package com.realtech.cloudschool.repository;
+package com.realtech.cloudschool.identityaccess.domain.repository;
 
 
-import com.realtech.cloudschool.model.User;
+import com.realtech.cloudschool.identityaccess.domain.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;

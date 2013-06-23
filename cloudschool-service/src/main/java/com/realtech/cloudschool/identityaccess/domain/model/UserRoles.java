@@ -1,4 +1,4 @@
-package com.realtech.cloudschool.model;
+package com.realtech.cloudschool.identityaccess.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

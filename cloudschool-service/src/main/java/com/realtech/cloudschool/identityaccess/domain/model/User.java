@@ -1,4 +1,4 @@
-package com.realtech.cloudschool.model;
+package com.realtech.cloudschool.identityaccess.domain.model;
 
 import javax.persistence.*;
 import java.util.Date;

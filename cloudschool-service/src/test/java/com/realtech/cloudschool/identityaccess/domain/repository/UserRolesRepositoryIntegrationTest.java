@@ -1,6 +1,7 @@
-package com.realtech.cloudschool.repository;
+package com.realtech.cloudschool.identityaccess.domain.repository;
 
-import com.realtech.cloudschool.model.UserRoles;
+import com.realtech.cloudschool.AbstractCloudSchoolRepositoryTest;
+import com.realtech.cloudschool.identityaccess.domain.model.UserRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.testng.annotations.Test;

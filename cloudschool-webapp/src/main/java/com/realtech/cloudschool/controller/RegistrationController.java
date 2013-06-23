@@ -3,10 +3,10 @@ package com.realtech.cloudschool.controller;
 
 
 import com.realtech.cloudschool.command.UserCommand;
-import com.realtech.cloudschool.model.User;
-import com.realtech.cloudschool.model.UserRoles;
-import com.realtech.cloudschool.repository.UserRepository;
-import com.realtech.cloudschool.repository.UserRolesRepository;
+import com.realtech.cloudschool.identityaccess.domain.model.User;
+import com.realtech.cloudschool.identityaccess.domain.model.UserRoles;
+import com.realtech.cloudschool.identityaccess.domain.repository.UserRepository;
+import com.realtech.cloudschool.identityaccess.domain.repository.UserRolesRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

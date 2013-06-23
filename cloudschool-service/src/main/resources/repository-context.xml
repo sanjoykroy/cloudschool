@@ -7,6 +7,6 @@
 
     <import resource="infrastructure.xml" />
 
-    <jpa:repositories base-package="com.realtech.cloudschool.repository" />
+    <jpa:repositories base-package="com.realtech.cloudschool.identityaccess.domain.repository" />
 
 </beans>

@@ -1,9 +1,9 @@
 package com.realtech.cloudschool.controller;
 
-import com.realtech.cloudschool.model.User;
-import com.realtech.cloudschool.model.UserRoles;
-import com.realtech.cloudschool.repository.UserRepository;
-import com.realtech.cloudschool.repository.UserRolesRepository;
+import com.realtech.cloudschool.identityaccess.domain.model.User;
+import com.realtech.cloudschool.identityaccess.domain.model.UserRoles;
+import com.realtech.cloudschool.identityaccess.domain.repository.UserRepository;
+import com.realtech.cloudschool.identityaccess.domain.repository.UserRolesRepository;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;

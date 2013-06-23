@@ -1,7 +1,7 @@
 package com.realtech.cloudschool.command;
 
 
-import com.realtech.cloudschool.model.User;
+import com.realtech.cloudschool.identityaccess.domain.model.User;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.is;
