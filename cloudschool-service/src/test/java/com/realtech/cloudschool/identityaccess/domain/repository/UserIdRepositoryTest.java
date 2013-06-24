@@ -1,7 +1,8 @@
 package com.realtech.cloudschool.identityaccess.domain.repository;
 
+
 import com.realtech.cloudschool.AbstractCloudSchoolRepositoryTest;
-import com.realtech.cloudschool.identityaccess.domain.model.UserRoles;
+import com.realtech.cloudschool.identityaccess.domain.model.UserId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 
@@ -9,14 +10,14 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class UserRolesRepositoryIntegrationTest extends AbstractCloudSchoolRepositoryTest {
+public class UserIdRepositoryTest extends AbstractCloudSchoolRepositoryTest {
 
     @Autowired
-    private UserRolesRepository repository;
+    private UserIdRepository userIdRepository;
 
     @Test
-    public void shouldSaveUserRoles() {
-        UserRoles userRoles = repository.save(new UserRoles());
-        assertThat(userRoles.getUserRoleId(), is(notNullValue()));
+    public void shouldGenerateNextIdentity() throws Exception {
+        UserId id = userIdRepository.nextIdentity();
+        assertThat(id, is(notNullValue()));
     }
 }

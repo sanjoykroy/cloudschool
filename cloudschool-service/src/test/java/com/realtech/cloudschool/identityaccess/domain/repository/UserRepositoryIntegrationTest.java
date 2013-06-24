@@ -5,7 +5,6 @@ import com.realtech.cloudschool.identityaccess.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.test.context.ContextConfiguration;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -14,7 +13,6 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-@ContextConfiguration("classpath:repository-context.xml")
 public class UserRepositoryIntegrationTest extends AbstractCloudSchoolRepositoryTest {
 
 
