@@ -83,6 +83,19 @@ public class UserCommand {
         this.enabled = enabled;
     }
 
+    @Override
+    public String toString() {
+        return "UserCommand{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", interests='" + interests + '\'' +
+                ", enabled=" + enabled +
+                '}';
+    }
+
     public User convertToUser(){
         User user = new User();
         user.setUsername(getUsername());

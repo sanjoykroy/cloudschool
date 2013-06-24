@@ -9,4 +9,6 @@
 
     <jpa:repositories base-package="com.realtech.cloudschool.identityaccess.domain.repository" />
 
+    <bean id="userIdRepository"  class="com.realtech.cloudschool.identityaccess.domain.repository.impl.UserIdRepositoryImpl" />
+
 </beans>
