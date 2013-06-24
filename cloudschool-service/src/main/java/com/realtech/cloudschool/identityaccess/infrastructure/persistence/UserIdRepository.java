@@ -1,4 +1,4 @@
-package com.realtech.cloudschool.identityaccess.domain.repository;
+package com.realtech.cloudschool.identityaccess.infrastructure.persistence;
 
 
 import com.realtech.cloudschool.identityaccess.domain.model.UserId;

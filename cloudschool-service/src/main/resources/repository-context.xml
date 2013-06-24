@@ -7,8 +7,8 @@
 
     <import resource="infrastructure.xml" />
 
-    <jpa:repositories base-package="com.realtech.cloudschool.identityaccess.domain.repository" />
+    <jpa:repositories base-package="com.realtech.cloudschool.identityaccess.infrastructure" />
 
-    <bean id="userIdRepository"  class="com.realtech.cloudschool.identityaccess.domain.repository.impl.UserIdRepositoryImpl" />
+    <bean id="userIdRepository"  class="com.realtech.cloudschool.identityaccess.infrastructure.persistence.impl.UserIdRepositoryImpl" />
 
 </beans>

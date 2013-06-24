@@ -1,7 +1,7 @@
 package com.realtech.cloudschool.controller;
 
 import com.realtech.cloudschool.identityaccess.domain.model.User;
-import com.realtech.cloudschool.identityaccess.domain.repository.UserRepository;
+import com.realtech.cloudschool.identityaccess.infrastructure.persistence.UserRepository;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;

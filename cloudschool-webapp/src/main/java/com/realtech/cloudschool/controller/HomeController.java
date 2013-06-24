@@ -1,7 +1,7 @@
 package com.realtech.cloudschool.controller;
 
 import com.realtech.cloudschool.identityaccess.domain.model.User;
-import com.realtech.cloudschool.identityaccess.domain.repository.UserRepository;
+import com.realtech.cloudschool.identityaccess.infrastructure.persistence.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

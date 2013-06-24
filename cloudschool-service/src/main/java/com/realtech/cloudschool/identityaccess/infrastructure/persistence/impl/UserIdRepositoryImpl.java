@@ -1,8 +1,8 @@
-package com.realtech.cloudschool.identityaccess.domain.repository.impl;
+package com.realtech.cloudschool.identityaccess.infrastructure.persistence.impl;
 
 
 import com.realtech.cloudschool.identityaccess.domain.model.UserId;
-import com.realtech.cloudschool.identityaccess.domain.repository.UserIdRepository;
+import com.realtech.cloudschool.identityaccess.infrastructure.persistence.UserIdRepository;
 
 import java.util.UUID;
 
