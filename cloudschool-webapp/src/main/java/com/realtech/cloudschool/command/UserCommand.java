@@ -1,5 +1,6 @@
 package com.realtech.cloudschool.command;
 
+import com.realtech.cloudschool.identityaccess.domain.model.Email;
 import com.realtech.cloudschool.identityaccess.domain.model.User;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
@@ -103,7 +104,8 @@ public class UserCommand {
         user.setPassword(encoder.encode(getPassword()));
         user.setFirstname(getFirstname());
         user.setLastname(getLastname());
-        user.setEmail(getEmail());
+        Email email = new Email(getEmail());
+        user.setEmail(email);
         user.setInterests(getInterests());
         user.setCreateDate(new Date());
         user.setUpdateDate(new Date());

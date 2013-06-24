@@ -12,8 +12,8 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class UserIdTest {
 
-    @DataProvider(name = "invalidIdValues")
-    public Object[][] createData1() {
+    @DataProvider(name = "invalidUserIds")
+    public Object[][] invalidUserIds() {
         return new Object[][] {
                 { null },
                 { "" },
@@ -21,7 +21,7 @@ public class UserIdTest {
         };
     }
 
-    @Test(dataProvider = "invalidIdValues", expectedExceptions = IllegalArgumentException.class)
+    @Test(dataProvider = "invalidUserIds", expectedExceptions = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionWhenInvalidDataIsPassed(String id) throws Exception {
         new UserId(id);
     }

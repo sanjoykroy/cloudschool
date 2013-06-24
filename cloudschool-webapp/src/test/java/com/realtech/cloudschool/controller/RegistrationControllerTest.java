@@ -1,5 +1,6 @@
 package com.realtech.cloudschool.controller;
 
+import com.realtech.cloudschool.identityaccess.domain.model.Email;
 import com.realtech.cloudschool.identityaccess.domain.model.User;
 import com.realtech.cloudschool.identityaccess.domain.model.UserId;
 import com.realtech.cloudschool.identityaccess.domain.model.UserRoles;
@@ -68,11 +69,11 @@ public class RegistrationControllerTest {
 
         this.mockMvc.perform(
                 post("/register")
-                    .param("username", user.getUsername())
+                    .param("username", "testUsername")
                     .param("password", "testPassword")
-                    .param("firstname", user.getFirstname())
-                    .param("lastname", user.getLastname())
-                    .param("email", user.getEmail())
+                    .param("firstname", "testFirstname")
+                    .param("lastname", "testLastname")
+                    .param("email", "testEmail@abc.com")
                     .param("interests", user.getInterests()))
                 .andExpect(status().isOk())
                 .andExpect(model().hasNoErrors())
@@ -92,7 +93,8 @@ public class RegistrationControllerTest {
         user.setPassword("$1$54%as56w$UgWV0I9YO9GyYfAqGmW7w/");
         user.setFirstname("testFirstname");
         user.setLastname("testLastname");
-        user.setEmail("testEmail@abc.com");
+        Email email = new Email("testEmail@abc.com");
+        user.setEmail(email);
         user.setInterests("test interests");
         user.setEnabled(true);
         user.setCreateDate(new Date());

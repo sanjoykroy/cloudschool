@@ -15,7 +15,8 @@ public class User {
     private String password;
     private String firstname;
     private String lastname;
-    private String email;
+    @Embedded
+    private Email email;
     private String interests;
 
     @Temporal(TemporalType.DATE)
@@ -72,11 +73,11 @@ public class User {
         this.lastname = lastname;
     }
 
-    public String getEmail() {
+    public Email getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(Email email) {
         this.email = email;
     }
 
