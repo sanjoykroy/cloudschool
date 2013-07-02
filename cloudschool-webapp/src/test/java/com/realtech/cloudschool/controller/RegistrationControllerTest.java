@@ -1,5 +1,6 @@
 package com.realtech.cloudschool.controller;
 
+import com.realtech.cloudschool.command.UserCommand;
 import com.realtech.cloudschool.identityaccess.domain.model.Email;
 import com.realtech.cloudschool.identityaccess.domain.model.User;
 import com.realtech.cloudschool.identityaccess.domain.model.UserId;
@@ -7,9 +8,11 @@ import com.realtech.cloudschool.identityaccess.domain.model.UserRoles;
 import com.realtech.cloudschool.identityaccess.infrastructure.persistence.UserIdRepository;
 import com.realtech.cloudschool.identityaccess.infrastructure.persistence.UserRepository;
 import com.realtech.cloudschool.identityaccess.infrastructure.persistence.UserRolesRepository;
+import com.realtech.cloudschool.validator.UserCommandValidator;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.web.servlet.View;
 import org.testng.annotations.BeforeMethod;
@@ -22,6 +25,7 @@ import java.util.Map;
 import java.util.UUID;
 
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
@@ -36,6 +40,7 @@ import static org.springframework.test.web.server.setup.MockMvcBuilders.standalo
 public class RegistrationControllerTest {
 
     private static final String EXPECTED_HOME_VIEW = "home";
+    private static final String EXPECTED_REDIRECT_VIEW = "login";
 
     @InjectMocks
     private RegistrationController controller;
@@ -47,17 +52,34 @@ public class RegistrationControllerTest {
     private UserIdRepository mockUserIdRepository;
     @Mock
     private UserRolesRepository mockRolesRepository;
+    @Spy
+    private UserCommandValidator validator;
     private MockMvc mockMvc;
 
     @BeforeMethod
     public void setup() {
         controller = new RegistrationController();
+        validator = new UserCommandValidator();
         MockitoAnnotations.initMocks(this);
         this.mockMvc = standaloneSetup(controller).setSingleView(mockView).build();
     }
 
     @Test
-    public void shouldRegisterUser() throws Exception{
+    public void shouldFailToRegisterUserWhenValidationErrorOccurs() throws Exception {
+        this.mockMvc.perform(
+                post("/register")
+                        .param("username", "testUsername")
+                        .param("password", "testPassword")
+                        .param("lastname", "testLastname")
+                        .param("email", "testEmail@abc.com"))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeHasErrors())
+                .andExpect(model().attribute("userCommand", is(UserCommand.class)))
+                .andExpect(view().name(containsString(EXPECTED_REDIRECT_VIEW)));
+    }
+
+    @Test
+    public void shouldRegisterUser() throws Exception {
         User user = getFakeUser();
         User savedUser = getFakeUser();
         savedUser.setId(101L);

@@ -10,6 +10,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc">
 
     <context:component-scan base-package="com.realtech.cloudschool.controller" />
+    <context:component-scan base-package="com.realtech.cloudschool.validator" />
 
     <mvc:annotation-driven />
 
