@@ -2,6 +2,7 @@ package com.realtech.cloudschool.identityaccess.infrastructure.persistence;
 
 import com.realtech.cloudschool.AbstractCloudSchoolRepositoryTest;
 import com.realtech.cloudschool.identityaccess.domain.model.User;
+import com.realtech.cloudschool.identityaccess.domain.model.UserId;
 import com.realtech.cloudschool.identityaccess.infrastructure.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -47,8 +48,19 @@ public class UserRepositoryIntegrationTest extends AbstractCloudSchoolRepository
     }
 
     @Test
+    public void shouldFindByUserId(){
+        createSomeUsers();
+        UserId userIdToLookFor = new UserId("uid1");
+
+        Page<User> users = repository.findByUserId(userIdToLookFor, new PageRequest(0, 2));
+
+        assertThat(users.getContent().size(), is(1));
+        assertFalse(users.hasPreviousPage());
+    }
+
+    @Test
     public void shouldFindById() {
-        User user = repository.save(createUser("timpre", "Tim", "Prentice"));
+        User user = repository.save(createUser("timpre", "uid1", "Tim", "Prentice"));
 
         User savedUser = repository.findOne(user.getId());
 
@@ -60,12 +72,14 @@ public class UserRepositoryIntegrationTest extends AbstractCloudSchoolRepository
     // Helper Methods
 
     private void createSomeUsers(){
-        createUser("johsmi", "John", "Smith");
-        createUser("timpre", "Tim", "Prentice");
+        createUser("johsmi", "uid1", "John", "Smith");
+        createUser("timpre", "uid2", "Tim", "Prentice");
     }
 
-    private User createUser(String username, String firstname, String lastname){
+    private User createUser(String username, String userId, String firstname, String lastname){
         User user = new User();
+        UserId uid = new UserId(userId);
+        user.setUserId(uid);
         user.setUsername(username);
         user.setFirstname(firstname);
         user.setLastname(lastname);

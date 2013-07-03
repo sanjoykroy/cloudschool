@@ -2,7 +2,9 @@ package com.realtech.cloudschool.controller;
 
 
 import com.realtech.cloudschool.identityaccess.domain.model.User;
+import com.realtech.cloudschool.identityaccess.domain.model.UserId;
 import com.realtech.cloudschool.identityaccess.infrastructure.persistence.UserRepository;
+import org.hamcrest.Matchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -18,6 +20,7 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.get;
@@ -49,19 +52,19 @@ public class ProfileControllerTest {
     public void shouldShowProfilePage() throws Exception {
         User user =  getFakeUser();
         Page<User> users = new PageImpl<User>(Arrays.asList(user));
-        Pageable pageable = new PageRequest(0, 1);
-        when(repository.findByUsername("testUser", pageable)).thenReturn(users);
+        when(repository.findByUserId(any(UserId.class), any(Pageable.class))).thenReturn(users);
 
-        this.mockMvc.perform(get("/profile/testUser"))
+        this.mockMvc.perform(get("/profile/testUserId"))
                 .andExpect(model().attribute("user", user))
                 .andExpect(view().name(containsString(EXPECTED_PROFILE_VIEW)))
                 .andExpect(status().isOk());
 
-        verify(repository).findByUsername("testUser", pageable);
+        verify(repository).findByUserId(any(UserId.class), any(Pageable.class));
     }
 
     private User getFakeUser(){
         User user = new User();
+        user.setUserId(new UserId("testUserId"));
         user.setUsername("testUser");
         return user;
     }

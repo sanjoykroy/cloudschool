@@ -1,6 +1,7 @@
 package com.realtech.cloudschool.controller;
 
 import com.realtech.cloudschool.identityaccess.domain.model.User;
+import com.realtech.cloudschool.identityaccess.domain.model.UserId;
 import com.realtech.cloudschool.identityaccess.infrastructure.persistence.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +24,13 @@ public class ProfileController {
 
     private static final String PROFILE_VIEW = "profile";
 
-    @RequestMapping(value="/profile/{userName}", method = RequestMethod.GET)
-    public String showProfile(@PathVariable String userName, ModelMap map){
-        LOGGER.info("Showing profile for [{}]", userName);
-        Page<User> users = repository.findByUsername(userName, new PageRequest(0, 1));
+    @RequestMapping(value="/profile/{userId}", method = RequestMethod.GET)
+    public String showProfile(@PathVariable String userId, ModelMap map){
+        LOGGER.info("Showing profile for User Id [{}]", userId);
+        UserId userIdToLookFor = new UserId(userId);
+        Page<User> users = repository.findByUserId(userIdToLookFor, new PageRequest(0, 1));
         map.addAttribute("user", users.iterator().next());
+        map.addAttribute("menuactive", "profile");
         return PROFILE_VIEW;
     }
 
