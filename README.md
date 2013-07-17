@@ -9,6 +9,22 @@ Cloud School
 
 <p>Cloud School project is initiated to create a collaborative learning environment where children can learn from any part of the world.</p>
 
+<p>This project uses:</p>
+
+<ol>
+<li>Core Spring</li>
+<li>Spring Data</li>
+<li>Spring MVC</li>
+<li>Thymeleaf</li>
+<li>H2</li>
+<li>Liquibase</li>
+<li>TestNG</li>
+<li>Mocktio</li>
+<li>Spring Test MVC</li>
+<li>Hamcrest</li>
+<li>Cucumber JVM</li>
+</ol>
+
 To get the code
 ===============
 
