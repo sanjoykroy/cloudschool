@@ -16,6 +16,8 @@ Cloud School
 <li>Spring Data</li>
 <li>Spring MVC</li>
 <li>Thymeleaf</li>
+<li>Twitter Bootstrap</li>
+<li>jQuery</li>
 <li>H2</li>
 <li>Liquibase</li>
 <li>TestNG</li>
