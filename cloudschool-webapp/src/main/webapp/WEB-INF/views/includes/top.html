@@ -15,11 +15,11 @@
                            placeholder="Username"/>
                     <input type="password" class="input-small" id="j_password" name="j_password"
                            placeholder="Password"/>
-                    <button class="btn" type="submit">Sign in</button>
+                    <button class="btn" type="submit" id="sign-in">Sign in</button>
                 </form>
             </div>
             <div th:if="${user != null}">
-                <p style="font: bold 1.5em Georgia, serif;">Hello <span th:text="${user.firstname}"/></p>
+                <p style="font: bold 1.5em Georgia, serif;">Hello <span id="user-name"  th:text="${user.firstname}"/></p>
             </div>
         </div>
     </div>

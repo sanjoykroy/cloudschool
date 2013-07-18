@@ -8,7 +8,7 @@
         <li th:class="${menuactive == 'profile'} ? 'active' : ''"><a th:href="'/cloudschool/profile/' + ${user.userId.id}">Profile</a></li>
         <li><a href="#">Groups</a></li>
         <li><a href="#">Discussions</a></li>
-        <li><a href="/cloudschool/logout">Logout</a></li>
+        <li><a id="logout" href="/cloudschool/logout">Logout</a></li>
     </ul>
 </div>
 </body>
