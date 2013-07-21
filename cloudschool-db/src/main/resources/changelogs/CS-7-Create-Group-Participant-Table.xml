@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="CS-7-Create-Group-Participant-Table" author="sanjoy.roy">
+        <sql><![CDATA[
+
+                CREATE TABLE GROUP_PARTICIPANT (
+                    ID NUMBER(19,0) NOT NULL AUTO_INCREMENT,
+                    GROUP_ID NUMBER(19,0),
+                    INDEX GROUP_INX (GROUP_ID),
+                    FOREIGN KEY (GROUP_ID) REFERENCES LEARNING_GROUP(ID) ON DELETE CASCADE
+                );
+
+            ]]>
+        </sql>
+    </changeSet>
+</databaseChangeLog>

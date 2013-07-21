@@ -8,6 +8,9 @@
         <class>com.realtech.cloudschool.identityaccess.domain.model.UserId</class>
         <class>com.realtech.cloudschool.identityaccess.domain.model.UserRoles</class>
         <class>com.realtech.cloudschool.identityaccess.domain.model.Email</class>
+        <class>com.realtech.cloudschool.collaboration.domain.model.LearningGroup</class>
+        <class>com.realtech.cloudschool.collaboration.domain.model.GroupOwner</class>
+        <class>com.realtech.cloudschool.collaboration.domain.model.GroupParticipant</class>
     </persistence-unit>
 
 </persistence>

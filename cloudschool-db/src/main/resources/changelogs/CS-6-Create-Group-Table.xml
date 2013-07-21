@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="CS-6-Create-Group-Table" author="sanjoy.roy">
+        <sql><![CDATA[
+
+                CREATE TABLE LEARNING_GROUP (
+                    ID NUMBER(19,0) NOT NULL AUTO_INCREMENT,
+                    NAME VARCHAR2(255) NOT NULL,
+                    DESCRIPTION VARCHAR2(255) NOT NULL,
+                    CREATEDATE DATE DEFAULT SYSDATE,
+                    ENABLED TINYINT(1) NOT NULL,
+                    OWNER NUMBER(19,0) NOT NULL,
+                    PRIMARY KEY(id)
+                );
+
+            ]]>
+        </sql>
+    </changeSet>
+</databaseChangeLog>

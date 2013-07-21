@@ -10,6 +10,8 @@
     <include file="changelogs/CS-3-Insert-User-Data.xml" />
     <include file="changelogs/CS-4-Add-UserId-Column.xml" />
     <include file="changelogs/CS-5-Insert-UserId.xml" />
+    <include file="changelogs/CS-6-Create-Group-Table.xml" />
+    <include file="changelogs/CS-7-Create-Group-Participant-Table.xml" />
 
 </databaseChangeLog>
 
