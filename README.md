@@ -68,6 +68,8 @@ $ cd cloudschool-integration
 $ mvn test -Pit
 </code></pre>
 
-3. See the test result by opening the below page:
+See the test result by opening the below page:
 
+<pre><code>
 <YOUR-DIRECTORY>cloudschool/cloudschool-integration/target/surefire-reports/index.html
+</code></pre>
