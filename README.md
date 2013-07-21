@@ -40,11 +40,34 @@ To run the application
 
 <p>From the command line with Maven:</p>
 
-<pre><code>$ cd cloudschool-webapp
-$ mvn clean install -Pjetty jetty:run
+<pre><code>
+$ cd cloudschool
+
+$ mvn clean install
+
+$ cd cloudschool-webapp
+
+$ mvn -Pjetty jetty:run
 </code></pre>
 
 To view the application
 =======================
 
 <p> http://localhost:8080/cloudschool </p>
+
+To run BDD tests
+================
+
+1. Run the application following above commands
+
+2. Execute the below commands
+
+<pre><code>
+$ cd cloudschool-integration
+
+$ mvn test -Pit
+</code></pre>
+
+3. See the test result by opening the below page:
+
+<YOUR-DIRECTORY>cloudschool/cloudschool-integration/target/surefire-reports/index.html

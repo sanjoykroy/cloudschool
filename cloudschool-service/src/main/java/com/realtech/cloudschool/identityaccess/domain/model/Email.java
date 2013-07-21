@@ -8,6 +8,7 @@ import static java.util.regex.Pattern.matches;
 @Embeddable
 public final class Email {
 
+
     private static final String EMAIL_PATTERN = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
 
     @Column(name = "EMAIL")

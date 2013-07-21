@@ -1,5 +1,6 @@
 package com.realtech.cloudschool.definitions;
 
+import com.realtech.cloudschool.model.page.HomePage;
 import com.realtech.cloudschool.model.page.LoginPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -12,6 +13,7 @@ import static org.testng.Assert.assertTrue;
 public class LoginStepDefinitions {
 
     private LoginPage loginPage = LoginPage.getInstance();
+    private HomePage homePage = HomePage.getInstance();
 
     @Given("I am in login page")
     public void i_am_in_login_page(){
@@ -41,5 +43,10 @@ public class LoginStepDefinitions {
     @Then("I should not be able to login")
     public void i_should_not_be_able_to_login(){
         assertFalse(loginPage.isLoginSuccessful());
+    }
+
+    @And("I should be able to logout")
+    public void i_should_be_able_to_logout(){
+        homePage.logout();
     }
 }

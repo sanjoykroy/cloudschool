@@ -18,6 +18,7 @@ Feature: Login to Cloud School
         And I enter password '<password>'
         When I click on login
         Then I should be able to login
+        And I should be able to logout
 
         Examples:
             |username|password|

@@ -18,6 +18,10 @@ public class LoginPage extends AbstractPage {
        getPage(LOGIN_PAGE_URL);
     }
 
+    public boolean isCurrentPage(){
+        return findElementById("user-name") == null;
+    }
+
     public void setUsername(String username){
         setFieldElement("j_username", username);
     }
@@ -30,7 +34,15 @@ public class LoginPage extends AbstractPage {
         submit("sign-in");
     }
 
+    public void signUp(){
+        submit("sign-up");
+    }
+
     public boolean isLoginSuccessful(){
         return findElementById("user-name") != null;
+    }
+
+    public void setFieldValue(String id, String value){
+        setFieldElement(id, value);
     }
 }

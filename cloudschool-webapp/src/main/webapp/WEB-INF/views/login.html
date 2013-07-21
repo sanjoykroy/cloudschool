@@ -37,9 +37,9 @@
                                     <div class="alert alert-error" th:if="${errors}">
                                         <p th:text="${#messages.msgOrNull(error.codes[1])} ? #{${error.codes[1]}} : ${error.defaultMessage}" th:each="error : ${errors}" />
                                     </div>
-                                    <input type="text" class="input-block-level" id="inputFirst" placeholder="First Name"
+                                    <input type="text" class="input-block-level" id="inputFirstName" placeholder="First Name"
                                            th:field="*{firstname}"/>
-                                    <input type="text" class="input-block-level" id="inputLast" placeholder="Last Name"
+                                    <input type="text" class="input-block-level" id="inputLastName" placeholder="Last Name"
                                            th:field="*{lastname}"/>
                                     <input type="text" class="input-block-level" id="inputEmail" placeholder="Email"
                                            th:field="*{email}"/>
@@ -48,7 +48,7 @@
                                            th:field="*{username}"/>
                                     <input type="password" class="input-block-level" id="inputPassword"
                                            placeholder="New Password" th:field="*{password}"/>
-                                    <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
+                                    <button class="btn btn-large btn-primary" type="submit" id="sign-up">Sign Up</button>
                                 </center>
                             </form>
                         </div>

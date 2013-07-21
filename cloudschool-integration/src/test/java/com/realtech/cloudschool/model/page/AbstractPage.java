@@ -38,6 +38,10 @@ public abstract class AbstractPage {
         return findElement(By.id(id));
     }
 
+    protected boolean isElementAvailable(String id) {
+        return findElementById(id) != null;
+    }
+
     protected void submit(String id){
         WebElement element = findElementById(id);
         notNull(element, format("Expected element '%s' is not present", id));
